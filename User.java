@@ -93,4 +93,9 @@ public class User {
     public void markAsCompleted(int taskNumber) {
         taskList.markAsCompleted(taskNumber);
     }
+
+    // get task number
+    public int getTaskNumber() {
+        return taskList.getTaskNumber();  // Assuming taskList keeps track of task numbers
+    }
 }

@@ -34,8 +34,11 @@ public class Main {
                 // add user
                 System.out.println("Enter username:");
                 String username = scanner.nextLine();
-                users[userCount] = new User(username);
-                userCount++;
+                if (User.addUser(username)) {
+                    System.out.println("User added");
+                } else {
+                    System.out.println("User not added. User already exists.");
+                }
 
             } else if (choice == 2) {
                 // login
@@ -54,6 +57,7 @@ public class Main {
                 String task = scanner.nextLine();
                 if (User.loggedInUser != null) {
                     User.loggedInUser.addTask(task);
+                    System.out.println("Task" + User.loggedInUser.getTaskNumber() + "added");
                     } else {
                         System.out.println("Please login first");
                         continue;
@@ -65,11 +69,14 @@ public class Main {
                     System.out.println("Enter task number:");
                     int taskNumber = scanner.nextInt();
                     User.loggedInUser.markAsCompleted(taskNumber);
+                    System.out.println("Task marked as done");
                 } else {
                     System.out.println("Please login first");
                     continue;
                 }
+
             } else if (choice == 5) {
+                // print all tasks
                 if (User.loggedInUser != null) {
                     User.loggedInUser.printAllTasks();
                 } else {
@@ -78,6 +85,7 @@ public class Main {
                 }
             } else if (choice == 6) {
                 User.logout();
+                System.out.println("User sucessfuly logged out");
             } else if (choice == 7) {
                 break;
         }
