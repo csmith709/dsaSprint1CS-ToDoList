@@ -69,7 +69,6 @@ public class Main {
                     System.out.println("Enter task number:");
                     int taskNumber = scanner.nextInt();
                     User.loggedInUser.markAsCompleted(taskNumber);
-                    System.out.println("Task marked as done");
                 } else {
                     System.out.println("Please login first");
                     continue;

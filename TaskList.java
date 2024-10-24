@@ -40,11 +40,12 @@ public void addTask(String description) {
 // mark a task as done
 public void markAsCompleted(int index) {
     TaskNode temp = head;
-    int counter = 0;
+    int counter = 1;
 
     while (temp != null) {
         if (counter == index) {
             temp.task.markAsDone();
+            System.out.println("Task marked as done");
             return;
         }
         temp = temp.next;
@@ -56,7 +57,7 @@ public void markAsCompleted(int index) {
 // print all tasks in the list
 public void printAllTasks() {
     TaskNode temp = head;
-    int counter = 0;
+    int counter = 1;
 
     if (temp == null) {
         System.out.println("no tasks available");
